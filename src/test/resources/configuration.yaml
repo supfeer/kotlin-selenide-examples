@@ -1,0 +1,3 @@
+frontend:
+  url: "https://found.ee"
+  port: 443

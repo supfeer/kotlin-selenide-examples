@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  chrome: &chrome-base-container
+    image: selenium/standalone-chrome
+    environment:
+      - LANG=ru_RU.UTF-8
+      - LANGUAGE=ru_RU
+    volumes:
+      - /dev/shm:/dev/shm
+      - ./tmp:/home/seluser/Downloads
+
+  chrome1: *chrome-base-container
+  chrome2: *chrome-base-container
+  chrome3: *chrome-base-container
+  chrome4: *chrome-base-container
+
+  ggr:
+    image: aerokube/ggr
+    volumes:
+      - "./src/test/resources/ggr:/etc/grid-router"
+    ports:
+      - 4444:4444
+
